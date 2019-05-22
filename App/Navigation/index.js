@@ -1,10 +1,13 @@
 import { HomeContainer } from '../Containers';
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { TabBar } from '../Components';
 
 const bottomNavigator = createBottomTabNavigator({
   Home: {
     screen: HomeContainer,
   },
+}, {
+  tabBarComponent: TabBar,
 });
 
 const stackNavigator = createStackNavigator({
@@ -12,7 +15,10 @@ const stackNavigator = createStackNavigator({
     screen: bottomNavigator,
   },
 }, {
-  initialRouteName: 'Home'
+  initialRouteName: 'Home',
+  defaultNavigationOptions: {
+    header: null,
+  },
 });
 
 export default createAppContainer(stackNavigator);
