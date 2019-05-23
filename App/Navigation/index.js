@@ -3,43 +3,43 @@ import { createStackNavigator, createBottomTabNavigator, createAppContainer } fr
 import { TabBar } from '../Components';
 
 const bottomNavigator = createBottomTabNavigator({
-  Home: {
-    screen: HomeContainer,
-    params: {
-      icon: "home"
-    },
-  },
-  Flow: {
-    screen: FlowContainer,
-    params: {
-      icon: "stream"
-    },
-  },
-  Music: {
-    screen: MusicContainer,
-    params: {
-      icon: "music"
-    },
-  },
-  Search: {
-    screen: SearchContainer,
-    params: {
-      icon: "search"
-    },
-  },
+	Home: {
+		screen: HomeContainer,
+		params: {
+			icon: "home"
+		},
+	},
+	Flow: {
+		screen: FlowContainer,
+		params: {
+			icon: "stream"
+		},
+	},
+	Music: {
+		screen: MusicContainer,
+		params: {
+			icon: "music"
+		},
+	},
+	Search: {
+		screen: SearchContainer,
+		params: {
+			icon: "search"
+		},
+	},
 }, {
-  tabBarComponent: TabBar,
-});
+		tabBarComponent: TabBar,
+	});
 
 const stackNavigator = createStackNavigator({
-  Home: {
-    screen: bottomNavigator,
-  },
+	Home: {
+		screen: bottomNavigator,
+	},
 }, {
-  initialRouteName: 'Home',
-  defaultNavigationOptions: {
-    header: null,
-  },
-});
+		initialRouteName: 'Home',
+		defaultNavigationOptions: {
+			header: null,
+		},
+	});
 
 export default createAppContainer(stackNavigator);

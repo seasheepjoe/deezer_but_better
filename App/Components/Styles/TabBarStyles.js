@@ -20,4 +20,8 @@ export default StyleSheet.create({
   buttonIcon: {
     fontSize: 20,
   },
+
+  buttonContainerActive: {
+    transform: [{ scale: 1.15 }],
+  },
 });

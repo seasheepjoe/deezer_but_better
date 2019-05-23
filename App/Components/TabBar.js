@@ -12,11 +12,14 @@ class TabBar extends Component {
   }
 
   render() {
-    console.log(this.props.navigation);
     return (
       <View style={Styles.container}>
         {this.props.navigation.state.routes.map(item => (
-          <TouchableOpacity onPress={() => this.props.navigation.navigate(item.key)} style={Styles.buttonContainer} hitSlop={{ top: 25, bottom: 25, left: 25, right: 25 }}>
+          <TouchableOpacity
+            key={item.key}
+            onPress={() => this.props.navigation.navigate(item.key)}
+            style={[Styles.buttonContainer, item.routeName === this.props.navigation.state.routes[this.props.navigation.state.index].routeName && Styles.buttonContainerActive]}
+            hitSlop={{ top: 25, bottom: 25, left: 25, right: 25 }}>
             <FontAwesome style={Styles.buttonIcon}>{Icons[item.params.icon]}</FontAwesome>
             <Text>{item.routeName}</Text>
           </TouchableOpacity>

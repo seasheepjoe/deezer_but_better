@@ -53,6 +53,18 @@
 		171D95020773404AB59F8329 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 343BFB7CAD8347598F7EEC3B /* fa-solid-900.ttf */; };
 		9371476596FC4DC5B818EA18 /* fa-solid-900.woff in Resources */ = {isa = PBXBuildFile; fileRef = 257B8A167F3040B8AB0D6ED5 /* fa-solid-900.woff */; };
 		62C19880326B444CB029091C /* fa-solid-900.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 29BB423CC69F446B9EF658DF /* fa-solid-900.woff2 */; };
+		0FE38E512123435B8D2A6B7E /* fa_brands_400.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9612FE2C7C5A4F6483D68B3D /* fa_brands_400.svg */; };
+		B62FBBEE5FFD48D0AD1DAAF9 /* fa_regular_400.svg in Resources */ = {isa = PBXBuildFile; fileRef = ECE332461B504E56872653AF /* fa_regular_400.svg */; };
+		8757968C22CB4C5BB718FE57 /* fa_solid_900.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4F347579E27A46E5B8CCDA7A /* fa_solid_900.svg */; };
+		5AFCAB6D79E14387A1DCB4A3 /* fa_brands_400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADBC0169F5D9430BB9E82463 /* fa_brands_400.ttf */; };
+		0C1DF65AC51440C496B79465 /* fa_brands_400.woff in Resources */ = {isa = PBXBuildFile; fileRef = EFC8B364F9314C1A81216562 /* fa_brands_400.woff */; };
+		68D6D9212C8A4C0391DEFDE1 /* fa_brands_400.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 8AB476B785154186AA289500 /* fa_brands_400.woff2 */; };
+		4C34942C8F6E4260B260EE3D /* fa_regular_400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 284E6FE34F604B7BAA92437A /* fa_regular_400.ttf */; };
+		A36E97B8FE26438BBBAE9AB6 /* fa_regular_400.woff in Resources */ = {isa = PBXBuildFile; fileRef = 116B478CBAF24FA59B09F2A2 /* fa_regular_400.woff */; };
+		E3EAF6B5A6F4407CB40DB493 /* fa_regular_400.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 3527790ED8984F0FB90B80CA /* fa_regular_400.woff2 */; };
+		450C0CD8E3814584A7BDA156 /* fa_solid_900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A32CE93004E64928EDB79 /* fa_solid_900.ttf */; };
+		4DC46311F7394C448EB88327 /* fa_solid_900.woff in Resources */ = {isa = PBXBuildFile; fileRef = 78D1A2370C7E4409B70A13C8 /* fa_solid_900.woff */; };
+		AE5CF453CF45426B9193F5E0 /* fa_solid_900.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = B18A9216B6C7458E910799E4 /* fa_solid_900.woff2 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -389,6 +401,18 @@
 		343BFB7CAD8347598F7EEC3B /* fa-solid-900.ttf */ = {isa = PBXFileReference; name = "fa-solid-900.ttf"; path = "../assets/fonts/fa-solid-900.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		257B8A167F3040B8AB0D6ED5 /* fa-solid-900.woff */ = {isa = PBXFileReference; name = "fa-solid-900.woff"; path = "../assets/fonts/fa-solid-900.woff"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		29BB423CC69F446B9EF658DF /* fa-solid-900.woff2 */ = {isa = PBXFileReference; name = "fa-solid-900.woff2"; path = "../assets/fonts/fa-solid-900.woff2"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9612FE2C7C5A4F6483D68B3D /* fa_brands_400.svg */ = {isa = PBXFileReference; name = "fa_brands_400.svg"; path = "../assets/fonts/fa_brands_400.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		ECE332461B504E56872653AF /* fa_regular_400.svg */ = {isa = PBXFileReference; name = "fa_regular_400.svg"; path = "../assets/fonts/fa_regular_400.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4F347579E27A46E5B8CCDA7A /* fa_solid_900.svg */ = {isa = PBXFileReference; name = "fa_solid_900.svg"; path = "../assets/fonts/fa_solid_900.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		ADBC0169F5D9430BB9E82463 /* fa_brands_400.ttf */ = {isa = PBXFileReference; name = "fa_brands_400.ttf"; path = "../assets/fonts/fa_brands_400.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EFC8B364F9314C1A81216562 /* fa_brands_400.woff */ = {isa = PBXFileReference; name = "fa_brands_400.woff"; path = "../assets/fonts/fa_brands_400.woff"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8AB476B785154186AA289500 /* fa_brands_400.woff2 */ = {isa = PBXFileReference; name = "fa_brands_400.woff2"; path = "../assets/fonts/fa_brands_400.woff2"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		284E6FE34F604B7BAA92437A /* fa_regular_400.ttf */ = {isa = PBXFileReference; name = "fa_regular_400.ttf"; path = "../assets/fonts/fa_regular_400.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		116B478CBAF24FA59B09F2A2 /* fa_regular_400.woff */ = {isa = PBXFileReference; name = "fa_regular_400.woff"; path = "../assets/fonts/fa_regular_400.woff"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3527790ED8984F0FB90B80CA /* fa_regular_400.woff2 */ = {isa = PBXFileReference; name = "fa_regular_400.woff2"; path = "../assets/fonts/fa_regular_400.woff2"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2E3A32CE93004E64928EDB79 /* fa_solid_900.ttf */ = {isa = PBXFileReference; name = "fa_solid_900.ttf"; path = "../assets/fonts/fa_solid_900.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		78D1A2370C7E4409B70A13C8 /* fa_solid_900.woff */ = {isa = PBXFileReference; name = "fa_solid_900.woff"; path = "../assets/fonts/fa_solid_900.woff"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B18A9216B6C7458E910799E4 /* fa_solid_900.woff2 */ = {isa = PBXFileReference; name = "fa_solid_900.woff2"; path = "../assets/fonts/fa_solid_900.woff2"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -691,6 +715,18 @@
 				343BFB7CAD8347598F7EEC3B /* fa-solid-900.ttf */,
 				257B8A167F3040B8AB0D6ED5 /* fa-solid-900.woff */,
 				29BB423CC69F446B9EF658DF /* fa-solid-900.woff2 */,
+				9612FE2C7C5A4F6483D68B3D /* fa_brands_400.svg */,
+				ECE332461B504E56872653AF /* fa_regular_400.svg */,
+				4F347579E27A46E5B8CCDA7A /* fa_solid_900.svg */,
+				ADBC0169F5D9430BB9E82463 /* fa_brands_400.ttf */,
+				EFC8B364F9314C1A81216562 /* fa_brands_400.woff */,
+				8AB476B785154186AA289500 /* fa_brands_400.woff2 */,
+				284E6FE34F604B7BAA92437A /* fa_regular_400.ttf */,
+				116B478CBAF24FA59B09F2A2 /* fa_regular_400.woff */,
+				3527790ED8984F0FB90B80CA /* fa_regular_400.woff2 */,
+				2E3A32CE93004E64928EDB79 /* fa_solid_900.ttf */,
+				78D1A2370C7E4409B70A13C8 /* fa_solid_900.woff */,
+				B18A9216B6C7458E910799E4 /* fa_solid_900.woff2 */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1172,6 +1208,18 @@
 				171D95020773404AB59F8329 /* fa-solid-900.ttf in Resources */,
 				9371476596FC4DC5B818EA18 /* fa-solid-900.woff in Resources */,
 				62C19880326B444CB029091C /* fa-solid-900.woff2 in Resources */,
+				0FE38E512123435B8D2A6B7E /* fa_brands_400.svg in Resources */,
+				B62FBBEE5FFD48D0AD1DAAF9 /* fa_regular_400.svg in Resources */,
+				8757968C22CB4C5BB718FE57 /* fa_solid_900.svg in Resources */,
+				5AFCAB6D79E14387A1DCB4A3 /* fa_brands_400.ttf in Resources */,
+				0C1DF65AC51440C496B79465 /* fa_brands_400.woff in Resources */,
+				68D6D9212C8A4C0391DEFDE1 /* fa_brands_400.woff2 in Resources */,
+				4C34942C8F6E4260B260EE3D /* fa_regular_400.ttf in Resources */,
+				A36E97B8FE26438BBBAE9AB6 /* fa_regular_400.woff in Resources */,
+				E3EAF6B5A6F4407CB40DB493 /* fa_regular_400.woff2 in Resources */,
+				450C0CD8E3814584A7BDA156 /* fa_solid_900.ttf in Resources */,
+				4DC46311F7394C448EB88327 /* fa_solid_900.woff in Resources */,
+				AE5CF453CF45426B9193F5E0 /* fa_solid_900.woff2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
