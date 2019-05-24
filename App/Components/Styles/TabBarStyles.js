@@ -9,6 +9,8 @@ export default StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     paddingBottom: Metrics.isIphoneX() === true ? 15 : 0,
+    borderColor: "red",
+    borderWidth: 1,
   },
 
   buttonContainer: {
@@ -18,7 +20,7 @@ export default StyleSheet.create({
   },
 
   buttonIcon: {
-    fontSize: 20,
+    fontSize: 16, // defines the size of the Font Awesome Icon
   },
 
   buttonContainerActive: {

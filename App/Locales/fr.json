@@ -1,3 +1,6 @@
 {
-  "": ""
+  "bottom_nav_route_home": "Accueil",
+  "bottom_nav_route_flow": "Flow",
+  "bottom_nav_route_music": "Ma musique",
+  "bottom_nav_route_search": "Rechercher"
 }
