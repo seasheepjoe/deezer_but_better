@@ -22,7 +22,7 @@ class TabBar extends Component {
             style={[Styles.buttonContainer, item.routeName === this.props.navigation.state.routes[this.props.navigation.state.index].routeName && Styles.buttonContainerActive]}
             hitSlop={{ top: 25, bottom: 25, left: 25, right: 25 }}>
             <FontAwesome style={Styles.buttonIcon}>{Icons[item.params.icon]}</FontAwesome>
-            <Text>{I18n.t(`bottom_nav_route_${item.routeName.toLowerCase()}`)}</Text>
+            <Text style={Styles.buttonText}>{I18n.t(`bottom_nav_route_${item.routeName.toLowerCase()}`)}</Text>
           </TouchableOpacity>
         ))}
       </View>

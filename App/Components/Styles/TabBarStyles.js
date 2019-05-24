@@ -9,14 +9,14 @@ export default StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     paddingBottom: Metrics.isIphoneX() === true ? 15 : 0,
-    borderColor: "red",
-    borderWidth: 1,
   },
 
   buttonContainer: {
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 10,
+    minWidth: "25%",
+    width: "auto",
   },
 
   buttonIcon: {
@@ -24,6 +24,10 @@ export default StyleSheet.create({
   },
 
   buttonContainerActive: {
-    transform: [{ scale: 1.15 }],
+    transform: [{ scale: 1.1 }],
+  },
+
+  buttonText: {
+    fontSize: 13,
   },
 });
