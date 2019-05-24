@@ -1,6 +1,6 @@
-import { HomeContainer, FlowContainer, MusicContainer, SearchContainer } from '../Containers';
-import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
-import { TabBar } from '../Components';
+import { HomeContainer, FlowContainer, MusicContainer, SearchContainer } from "../Containers";
+import { createStackNavigator, createBottomTabNavigator, createAppContainer } from "react-navigation";
+import { TabBar } from "../Components";
 
 const bottomNavigator = createBottomTabNavigator({
 	Home: {
@@ -36,7 +36,7 @@ const stackNavigator = createStackNavigator({
 		screen: bottomNavigator,
 	},
 }, {
-		initialRouteName: 'Home',
+		initialRouteName: "Home",
 		defaultNavigationOptions: {
 			header: null,
 		},

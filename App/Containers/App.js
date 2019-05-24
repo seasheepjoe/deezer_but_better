@@ -6,8 +6,8 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import RouteStack from '../Navigation';
+import React, { Component } from "react";
+import RouteStack from "../Navigation";
 
 export default class App extends Component {
 	render() {

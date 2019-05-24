@@ -1,22 +1,35 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { History } from '../Lib';
+import React, { Component } from "react";
+import { View, Text, Keyboard } from "react-native";
+import { History } from "../Lib";
+import { AppStyles } from "../Themes";
+import { SearchBar } from "../Components";
+import Styles from "./Styles/SearchContainerStyles";
 
 class SearchContainer extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+
+		};
+		this.input = null;
 	}
 
 	componentDidMount() {
-		History.getHistory().then(response => {
-
+		this.focusListener = this.props.navigation.addListener("didFocus", () => {
+			if (this.input !== null && this.input !== undefined) {
+				this.input.focus();
+			}
 		});
+	}
+
+	componentWillUnmount() {
+		this.focusListener.remove();
 	}
 
 	render() {
 		return (
-			<View>
-				<Text>SEARCH CONTAINER</Text>
+			<View style={[AppStyles.container, Styles.container]}>
+				<SearchBar setRef={ref => this.input = ref} />
 			</View>
 		);
 	}

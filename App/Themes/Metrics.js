@@ -1,6 +1,6 @@
-import { Dimensions, Platform, StatusBar } from 'react-native';
+import { Dimensions, Platform, StatusBar } from "react-native";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 const screenWidth = width;
 const screenHeight = height;
 
@@ -17,9 +17,10 @@ const Metrics = {
   screenWidth: screenWidth,
   screenHeight: screenHeight,
   statusBarHeight: Platform.select({ ios: isIphoneX() ? 44 : 20, android: StatusBar.currentHeight }),
-  headerHeight: screenHeight * 0.08,
+  headerHeight: screenHeight * 0.07,
   isIphoneX,
   tabBarHeight: screenHeight * 0.075,
+  paddingHorizontal: screenWidth * 0.05,
 };
 
 export default Metrics;

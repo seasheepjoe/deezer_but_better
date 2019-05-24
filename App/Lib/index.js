@@ -1,4 +1,4 @@
-import History from './History';
+import History from "./History";
 import I18n from "./I18n";
 
 export {

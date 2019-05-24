@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { AppStyles } from '../Themes';
-import Styles from './Styles/TabBarStyles';
-import FontAwesome, { Icons } from 'react-native-fontawesome';
+import React, { Component } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import { AppStyles } from "../Themes";
+import Styles from "./Styles/TabBarStyles";
+import FontAwesome, { Icons } from "react-native-fontawesome";
 import { I18n } from "../Lib";
 
 class TabBar extends Component {

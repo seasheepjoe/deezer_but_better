@@ -1,11 +1,11 @@
-// import { Store } from '../Utils';
-import { AsyncStorage } from 'react-native';
+// import { Store } from "../Utils";
+import { AsyncStorage } from "react-native";
 
-const key = '@user:history';
+const key = "@user:history";
 
 class History {
   /**
-   * Gets user's saved history
+   * Gets user"s saved history
    */
   static getHistory() {
     return new Promise((resolve, reject) => {
@@ -24,7 +24,7 @@ class History {
     return new Promise((resolve, reject) => {
       AsyncStorage.mergeItem(key, JSON.stringify(text), error => {
         if (error) {
-          console.warn('Could not save item in history.');
+          console.warn("Could not save item in history.");
           reject(error);
         } else {
           resolve();
