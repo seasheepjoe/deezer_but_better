@@ -32,7 +32,7 @@ class SearchBar extends Component<Props> {
           underlineColorAndroid={"transparent"}
           autoFocus={true}
           placeholder={I18n.t("search_bar_input_placeholder")}
-          placeholderTextColor={"lighgray"}
+          placeholderTextColor={"#000"}
         />
       </View>
     )
