@@ -10,15 +10,20 @@ class SearchContainer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-
+			query: "",
 		};
 		this.input = null;
+		this.search = this.search.bind(this);
+	}
+
+	search() {
+		let { query } = this.state;
+		Api.search(query).then(response => {
+			console.log(response);
+		});
 	}
 
 	componentDidMount() {
-		Api.getTrack(302127).then(response => {
-			console.log(response);
-		});
 		this.focusListener = this.props.navigation.addListener("didFocus", () => {
 			if (this.input !== null && this.input !== undefined) {
 				this.input.focus();
@@ -33,7 +38,11 @@ class SearchContainer extends Component {
 	render() {
 		return (
 			<View style={[AppStyles.container, Styles.container]}>
-				<SearchBar setRef={ref => this.input = ref} />
+				<SearchBar
+					setRef={ref => this.input = ref}
+					onChangeText={text => this.setState({ query: text.split(" ").join("+") })}
+					onSubmitEditing={this.search}
+				/>
 			</View>
 		);
 	}

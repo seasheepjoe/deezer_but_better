@@ -16,5 +16,16 @@ export default {
       url: `/album/${id}`,
       method: "GET",
     });
+  },
+
+  /**
+   * 
+   * @param {String} query 
+   */
+  search(query) {
+    return api({
+      url: `/search?q=${query}`,
+      method: "GET",
+    });
   }
 }

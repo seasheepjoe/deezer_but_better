@@ -6,6 +6,7 @@ import { I18n } from "../Lib";
 type Props = {
   setRef: Function,
   onChangeText: Function,
+  onSubmitEditing: Function,
 };
 class SearchBar extends Component<Props> {
   constructor(props) {
@@ -16,7 +17,7 @@ class SearchBar extends Component<Props> {
   }
 
   render() {
-    const { setRef, onChangeText } = this.props;
+    const { setRef, onChangeText, onSubmitEditing } = this.props;
     return (
       <View style={Styles.container}>
         <TextInput
@@ -33,6 +34,10 @@ class SearchBar extends Component<Props> {
           autoFocus={true}
           placeholder={I18n.t("search_bar_input_placeholder")}
           placeholderTextColor={"#000"}
+          returnKeyType={"search"}
+          onSubmitEditing={() => {
+            if (onSubmitEditing) onSubmitEditing();
+          }}
         />
       </View>
     )
