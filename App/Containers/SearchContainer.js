@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, SectionList, TouchableOpacity } from "react-native";
+import { View, Text, SectionList, TouchableOpacity, ActivityIndicator } from "react-native";
 import { History } from "../Lib";
 import { AppStyles } from "../Themes";
 import { SearchBar } from "../Components";
@@ -13,6 +13,7 @@ class SearchContainer extends Component {
 		this.state = {
 			query: "",
 			searchHistoryList: [],
+			isLoading: true,
 		};
 		this.input = null;
 		this.search = this.search.bind(this);
@@ -107,7 +108,13 @@ class SearchContainer extends Component {
 					renderItem={this.renderItem}
 					style={Styles.sectionList}
 					contentContainerStyle={Styles.sectionListContent}
+					onLayout={() => this.setState({ isLoading: false })}
 				/>
+				{this.state.isLoading === true &&
+					<View style={Styles.loadingScreen}>
+						<ActivityIndicator size={"large"} />
+					</View>
+				}
 			</View>
 		);
 	}

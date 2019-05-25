@@ -32,5 +32,16 @@ export default StyleSheet.create({
   sectionListContent: {
     paddingHorizontal: Metrics.paddingHorizontal,
     paddingVertical: Metrics.statusBarHeight / 2,
+    zIndex: 99,
+  },
+
+  loadingScreen: {
+    ...StyleSheet.absoluteFill,
+    zIndex: 100,
+    width: Metrics.screenWidth,
+    height: Metrics.screenHeight,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff",
   },
 });

@@ -21,6 +21,7 @@ class SearchBar extends Component<Props> {
     return (
       <View style={Styles.container}>
         <TextInput
+          style={Styles.textInput}
           ref={ref => {
             this.input = ref;
             if (setRef) setRef(ref);
@@ -32,12 +33,16 @@ class SearchBar extends Component<Props> {
           }}
           underlineColorAndroid={"transparent"}
           autoFocus={true}
+          autoCapitalize={"words"}
+          autoCorrect={false}
           placeholder={I18n.t("search_bar_input_placeholder")}
-          placeholderTextColor={"#000"}
+          placeholderTextColor={"lightgrey"}
           returnKeyType={"search"}
           onSubmitEditing={() => {
             if (onSubmitEditing) onSubmitEditing();
           }}
+          multiline={false}
+          numberOfLines={1}
         />
         <View style={Styles.hairlineBorderView} />
       </View>
