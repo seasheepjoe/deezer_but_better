@@ -39,5 +39,5 @@ export default StyleSheet.create({
     top: - Metrics.tabBarHeight / 5,
     left: 0,
     right: 0,
-  }
+  },
 });

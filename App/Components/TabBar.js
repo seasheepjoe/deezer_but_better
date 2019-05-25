@@ -4,7 +4,6 @@ import { AppStyles } from "../Themes";
 import Styles from "./Styles/TabBarStyles";
 import FontAwesome, { Icons } from "react-native-fontawesome";
 import { I18n } from "../Lib";
-import LinearGradient from "react-native-linear-gradient";
 
 class TabBar extends Component {
   constructor(props) {
@@ -16,12 +15,6 @@ class TabBar extends Component {
   render() {
     return (
       <View style={Styles.container}>
-        <LinearGradient
-          style={Styles.gradientView}
-          start={{ x: 0.5, y: 0.0 }}
-          end={{ x: 0.5, y: 1.0 }}
-          colors={["rgba(255, 255, 255, 0)", "rgba(0, 0, 0, 0.05)"]}>
-        </LinearGradient>
         {this.props.navigation.state.routes.map(item => (
           <TouchableOpacity
             key={item.key}

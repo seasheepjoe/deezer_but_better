@@ -39,6 +39,7 @@ class SearchBar extends Component<Props> {
             if (onSubmitEditing) onSubmitEditing();
           }}
         />
+        <View style={Styles.hairlineBorderView} />
       </View>
     )
   }

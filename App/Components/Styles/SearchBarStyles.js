@@ -12,4 +12,12 @@ export default StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: Metrics.paddingHorizontal,
   },
+
+  hairlineBorderView: {
+    position: "absolute",
+    bottom: 0,
+    width: Metrics.screenWidth,
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: "#E9E9E9",
+  },
 });
