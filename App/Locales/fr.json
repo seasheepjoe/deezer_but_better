@@ -3,5 +3,7 @@
   "bottom_nav_route_flow": "Flow",
   "bottom_nav_route_music": "Ma musique",
   "bottom_nav_route_search": "Rechercher",
-  "search_bar_input_placeholder": "Rechercher..."
+  "search_bar_input_placeholder": "Rechercher...",
+  "search_tracks_section_header_title": "Titres",
+  "track_item_by": "Par",
 }

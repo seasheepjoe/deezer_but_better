@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, SectionList, TouchableOpacity, ActivityIndicator } from "react-native";
-import { History } from "../Lib";
+import { History, I18n } from "../Lib";
 import { AppStyles } from "../Themes";
-import { SearchBar } from "../Components";
+import { SearchBar, TrackItem } from "../Components";
 import Styles from "./Styles/SearchContainerStyles";
 import Api from "../Api";
 import FontAwesome, { Icons } from "react-native-fontawesome";
@@ -14,6 +14,7 @@ class SearchContainer extends Component {
 			query: "",
 			searchHistoryList: [],
 			isLoading: true,
+			searchResults: [],
 		};
 		this.input = null;
 		this.search = this.search.bind(this);
@@ -75,7 +76,12 @@ class SearchContainer extends Component {
 	search() {
 		let { query } = this.state;
 		Api.search(query).then(response => {
-			console.log(response);
+			let tracks = response.data.data.filter(item => item.type === "track");
+			let tracksSection = {
+				title: I18n.t("search_tracks_section_header_title"),
+				data: tracks,
+			};
+			this.setState({ searchResults: [tracksSection], isLoading: false });
 		});
 	}
 
@@ -94,22 +100,38 @@ class SearchContainer extends Component {
 		)
 	}
 
+	renderTrackItem({ item, index }) {
+		return <TrackItem track={item} />
+	}
+
 	render() {
 		return (
 			<View style={[AppStyles.container, Styles.container]}>
 				<SearchBar
 					setRef={ref => this.input = ref}
-					onChangeText={text => this.setState({ query: text.split(" ").join("+") })}
+					onChangeText={text => this.setState({ query: text.split(" ").join("+"), })}
 					onSubmitEditing={this.search}
 				/>
-				<SectionList
-					sections={this.state.searchHistoryList}
-					renderSectionHeader={this.renderSectionHeader}
-					renderItem={this.renderItem}
-					style={Styles.sectionList}
-					contentContainerStyle={Styles.sectionListContent}
-					onLayout={() => this.setState({ isLoading: false })}
-				/>
+				{this.state.query === "" &&
+					<SectionList
+						sections={this.state.searchHistoryList}
+						renderSectionHeader={this.renderSectionHeader}
+						renderItem={this.renderItem}
+						style={Styles.sectionList}
+						contentContainerStyle={Styles.sectionListContent}
+						onLayout={() => this.setState({ isLoading: false })}
+					/>
+				}
+				{this.state.query !== "" &&
+					<SectionList
+						sections={this.state.searchResults}
+						renderSectionHeader={this.renderSectionHeader}
+						renderItem={this.renderTrackItem}
+						style={Styles.sectionList}
+						contentContainerStyle={Styles.sectionListContent}
+						onLayout={() => this.setState({ isLoading: false })}
+					/>
+				}
 				{this.state.isLoading === true &&
 					<View style={Styles.loadingScreen}>
 						<ActivityIndicator size={"large"} />
