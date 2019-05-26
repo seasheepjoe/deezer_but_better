@@ -7,11 +7,24 @@ export default StyleSheet.create({
     paddingHorizontal: 0,
   },
 
+  sectionHeader: {
+    marginBottom: 5,
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+
   sectionHeaderTitle: {
     fontSize: 20,
     color: "#000",
     fontWeight: "bold",
-    marginBottom: 5,
+    marginRight: 10,
+    includeFontPadding: false,
+  },
+
+  sectionIcon: {
+    color: "#000",
+    fontSize: 13,
   },
 
   itemContainer: {

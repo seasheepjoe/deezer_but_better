@@ -19,6 +19,7 @@ class SearchContainer extends Component {
 		this.input = null;
 		this.search = this.search.bind(this);
 		this.renderItem = this.renderItem.bind(this);
+		this.renderSectionHeader = this.renderSectionHeader.bind(this);
 	}
 
 	componentDidMount() {
@@ -86,8 +87,14 @@ class SearchContainer extends Component {
 	}
 
 	renderSectionHeader({ section }) {
+		let showMore = section.data.length > 2 && this.state.query !== "";
 		return (
-			<Text style={Styles.sectionHeaderTitle}>{section.title}</Text>
+			<TouchableOpacity style={Styles.sectionHeader} disabled={showMore === false}>
+				<Text style={Styles.sectionHeaderTitle}>{section.title}</Text>
+				{showMore === true &&
+					<FontAwesome style={Styles.sectionIcon}>{Icons.chevronRight}</FontAwesome>
+				}
+			</TouchableOpacity>
 		)
 	}
 
