@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Text, View, TextInput } from "react-native";
+import { Text, View, TextInput, TouchableOpacity } from "react-native";
 import Styles from "./Styles/SearchBarStyles";
 import { I18n } from "../Lib";
+import FontAwesome, { Icons } from "react-native-fontawesome";
 
 type Props = {
   setRef: Function,
@@ -14,6 +15,15 @@ class SearchBar extends Component<Props> {
     this.state = {
       text: "",
     };
+    this.clearSearchBar = this.clearSearchBar.bind(this);
+  }
+
+  clearSearchBar() {
+    if (this.props.onChangeText) {
+      this.props.onChangeText("");
+    }
+    this.input.clear();
+    this.setState({ text: "" });
   }
 
   render() {
@@ -44,6 +54,11 @@ class SearchBar extends Component<Props> {
           multiline={false}
           numberOfLines={1}
         />
+        {this.state.text !== "" &&
+          <TouchableOpacity onPress={this.clearSearchBar} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+            <FontAwesome style={Styles.clearIcon}>{Icons.timesCircle}</FontAwesome>
+          </TouchableOpacity>
+        }
         <View style={Styles.hairlineBorderView} />
       </View>
     )

@@ -9,7 +9,7 @@ export default StyleSheet.create({
     width: Metrics.screenWidth,
     height: Metrics.headerHeight,
     flexDirection: "row",
-    justifyContent: "flex-start",
+    justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: Metrics.paddingHorizontal,
   },
@@ -23,8 +23,11 @@ export default StyleSheet.create({
   },
 
   textInput: {
-    width: "100%",
     height: "100%",
     fontSize: 18,
+  },
+
+  clearIcon: {
+    fontSize: 17,
   },
 });
