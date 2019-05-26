@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, SectionList, TouchableOpacity, ActivityIndicator } from "react-native";
 import { History, I18n } from "../Lib";
 import { AppStyles } from "../Themes";
-import { SearchBar, TrackItem } from "../Components";
+import { SearchBar, TrackItem, Modal } from "../Components";
 import Styles from "./Styles/SearchContainerStyles";
 import Api from "../Api";
 import FontAwesome, { Icons } from "react-native-fontawesome";
@@ -17,9 +17,12 @@ class SearchContainer extends Component {
 			searchResults: [],
 		};
 		this.input = null;
+		this.modal = React.createRef();
 		this.search = this.search.bind(this);
 		this.renderItem = this.renderItem.bind(this);
 		this.renderSectionHeader = this.renderSectionHeader.bind(this);
+		this.renderSectionFooter = this.renderSectionFooter.bind(this);
+		this.openModal = this.openModal.bind(this);
 	}
 
 	componentDidMount() {
@@ -80,22 +83,29 @@ class SearchContainer extends Component {
 			let tracks = response.data.data.filter(item => item.type === "track");
 			let tracksSection = {
 				title: I18n.t("search_tracks_section_header_title"),
-				data: tracks,
+				data: tracks.slice(0, 2),
+				fullData: tracks,
 			};
 			this.setState({ searchResults: [tracksSection], isLoading: false });
 		});
 	}
 
 	renderSectionHeader({ section }) {
-		let showMore = section.data.length > 2 && this.state.query !== "";
 		return (
-			<TouchableOpacity style={Styles.sectionHeader} disabled={showMore === false}>
+			<TouchableOpacity style={Styles.sectionHeader}>
 				<Text style={Styles.sectionHeaderTitle}>{section.title}</Text>
-				{showMore === true &&
-					<FontAwesome style={Styles.sectionIcon}>{Icons.chevronRight}</FontAwesome>
-				}
+				<FontAwesome style={Styles.sectionIcon}>{Icons.chevronRight}</FontAwesome>
 			</TouchableOpacity>
-		)
+		);
+	}
+
+	renderSectionFooter({ section }) {
+		if (!section.fullData) return null;
+		return (
+			<TouchableOpacity onPress={() => this.openModal(section)}>
+				<Text>TOUT VOIR ALLER VIENS</Text>
+			</TouchableOpacity>
+		);
 	}
 
 	renderItem({ item, index }) {
@@ -111,9 +121,18 @@ class SearchContainer extends Component {
 		return <TrackItem track={item} />
 	}
 
+	openModal(section) {
+		this.modal.init({
+			data: section.fullData,
+			headerTitle: section.title,
+			query: this.state.query,
+		});
+	}
+
 	render() {
 		return (
 			<View style={[AppStyles.container, Styles.container]}>
+				<Modal setRef={ref => this.modal = ref} />
 				<SearchBar
 					setRef={ref => this.input = ref}
 					onChangeText={text => this.setState({ query: text.split(" ").join("+"), })}
@@ -133,6 +152,7 @@ class SearchContainer extends Component {
 					<SectionList
 						sections={this.state.searchResults}
 						renderSectionHeader={this.renderSectionHeader}
+						renderSectionFooter={this.renderSectionFooter}
 						renderItem={this.renderTrackItem}
 						style={Styles.sectionList}
 						contentContainerStyle={Styles.sectionListContent}
