@@ -56,7 +56,7 @@ class SearchBar extends Component<Props> {
         />
         {this.state.text !== "" &&
           <TouchableOpacity onPress={this.clearSearchBar} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
-            <FontAwesome style={Styles.clearIcon}>{Icons.timesCircle}</FontAwesome>
+            <FontAwesome style={Styles.clearIcon}>{Icons.times}</FontAwesome>
           </TouchableOpacity>
         }
         <View style={Styles.hairlineBorderView} />
