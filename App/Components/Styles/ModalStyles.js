@@ -13,4 +13,14 @@ export default StyleSheet.create({
     padding: 0,
     justifyContent: "flex-start",
   },
+
+  tracksList: {
+    backgroundColor: "#fafafa",
+  },
+
+  tracksListContent: {
+    paddingHorizontal: Metrics.paddingHorizontal,
+    paddingVertical: Metrics.statusBarHeight / 2,
+    zIndex: 99,
+  },
 });
