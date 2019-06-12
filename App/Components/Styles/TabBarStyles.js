@@ -21,6 +21,7 @@ export default StyleSheet.create({
 
   buttonIcon: {
     fontSize: 16, // defines the size of the Font Awesome Icon
+    color: "#32323D",
   },
 
   buttonContainerActive: {
@@ -29,6 +30,7 @@ export default StyleSheet.create({
 
   buttonText: {
     fontSize: 13,
+    color: "#32323D",
   },
 
   gradientView: {

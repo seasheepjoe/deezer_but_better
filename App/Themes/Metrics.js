@@ -19,7 +19,7 @@ const Metrics = {
   statusBarHeight: Platform.select({ ios: isIphoneX() ? 44 : 20, android: StatusBar.currentHeight }),
   headerHeight: screenHeight * 0.07,
   isIphoneX,
-  tabBarHeight: screenHeight * 0.075,
+  tabBarHeight: screenHeight * 0.072,
   paddingHorizontal: screenWidth * 0.05,
 };
 
