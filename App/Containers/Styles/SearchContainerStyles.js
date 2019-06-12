@@ -8,7 +8,7 @@ export default StyleSheet.create({
   },
 
   sectionHeader: {
-    marginBottom: 5,
+    marginBottom: 20,
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
@@ -43,7 +43,7 @@ export default StyleSheet.create({
   },
 
   sectionListContent: {
-    paddingHorizontal: Metrics.paddingHorizontal,
+    paddingHorizontal: Metrics.paddingHorizontal * 0.9,
     paddingVertical: Metrics.statusBarHeight / 2,
     zIndex: 99,
   },
@@ -56,5 +56,25 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
+  },
+
+  openModalButtonContainer: {
+    width: "100%",
+    height: Metrics.screenHeight * 0.03,
+    borderRadius: 3,
+    marginVertical: 5,
+    marginBottom: 25,
+  },
+
+  openModalButton: {
+    width: "100%",
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  openModalButtonText: {
+    fontSize: 12,
+    color: "#32323D"
   },
 });

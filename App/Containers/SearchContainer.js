@@ -6,6 +6,7 @@ import { SearchBar, TrackItem, Modal } from "../Components";
 import Styles from "./Styles/SearchContainerStyles";
 import Api from "../Api";
 import FontAwesome, { Icons } from "react-native-fontawesome";
+import ElevatedView from "react-native-elevated-view";
 
 class SearchContainer extends Component {
 	constructor(props) {
@@ -79,18 +80,23 @@ class SearchContainer extends Component {
 
 	search() {
 		let { query } = this.state;
+		this.setState({ isLoading: true });
 		Api.search(query).then(response => {
-			let tracks = response.data.data.filter(item => item.type === "track");
-			let tracksSection = {
-				title: I18n.t("search_tracks_section_header_title"),
-				data: tracks.slice(0, 2),
-				fullData: tracks,
-			};
-			this.setState({ searchResults: [tracksSection], isLoading: false });
+			let results = [];
+			for (var i in response) {
+				let obj = response[i];
+				results.push({
+					title: I18n.t(`search_${i}_section_header_title`),
+					data: obj,
+					type: i,
+				});
+			}
+			this.setState({ searchResults: results, isLoading: false });
 		});
 	}
 
 	renderSectionHeader({ section }) {
+		if (section.data.length <= 0) return null;
 		return (
 			<TouchableOpacity style={Styles.sectionHeader}>
 				<Text style={Styles.sectionHeaderTitle}>{section.title}</Text>
@@ -100,11 +106,13 @@ class SearchContainer extends Component {
 	}
 
 	renderSectionFooter({ section }) {
-		if (!section.fullData) return null;
+		if (section.data.length <= 0) return null;
 		return (
-			<TouchableOpacity onPress={() => this.openModal(section)}>
-				<Text>TOUT VOIR ALLER VIENS</Text>
-			</TouchableOpacity>
+			<ElevatedView elevation={4} style={Styles.openModalButtonContainer}>
+				<TouchableOpacity onPress={() => this.openModal(section)} style={Styles.openModalButton}>
+					<Text style={Styles.openModalButtonText}>{I18n.t(`search_see_all_${section.type}`)}</Text>
+				</TouchableOpacity>
+			</ElevatedView>
 		);
 	}
 
@@ -123,7 +131,7 @@ class SearchContainer extends Component {
 
 	openModal(section) {
 		this.modal.init({
-			data: section.fullData,
+			data: section.data,
 			headerTitle: section.title,
 			query: this.state.query,
 		});
@@ -135,7 +143,7 @@ class SearchContainer extends Component {
 				<Modal setRef={ref => this.modal = ref} />
 				<SearchBar
 					setRef={ref => this.input = ref}
-					onChangeText={text => this.setState({ query: text.split(" ").join("+"), })}
+					onChangeText={text => this.setState({ query: text.split(" ").join("+") })}
 					onSubmitEditing={this.search}
 				/>
 				{this.state.query === "" &&
@@ -146,6 +154,7 @@ class SearchContainer extends Component {
 						style={Styles.sectionList}
 						contentContainerStyle={Styles.sectionListContent}
 						onLayout={() => this.setState({ isLoading: false })}
+						keyExtractor={(item, index) => index.toString()}
 					/>
 				}
 				{this.state.query !== "" &&
@@ -157,6 +166,7 @@ class SearchContainer extends Component {
 						style={Styles.sectionList}
 						contentContainerStyle={Styles.sectionListContent}
 						onLayout={() => this.setState({ isLoading: false })}
+						keyExtractor={item => item.id}
 					/>
 				}
 				{this.state.isLoading === true &&
