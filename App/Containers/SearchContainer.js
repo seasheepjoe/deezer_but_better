@@ -7,6 +7,7 @@ import Styles from "./Styles/SearchContainerStyles";
 import Api from "../Api";
 import FontAwesome, { Icons } from "react-native-fontawesome";
 import ElevatedView from "react-native-elevated-view";
+import _ from "lodash";
 
 class SearchContainer extends Component {
 	constructor(props) {
@@ -24,6 +25,7 @@ class SearchContainer extends Component {
 		this.renderSectionHeader = this.renderSectionHeader.bind(this);
 		this.renderSectionFooter = this.renderSectionFooter.bind(this);
 		this.openModal = this.openModal.bind(this);
+		this.onChangeText = this.onChangeText.bind(this);
 	}
 
 	componentDidMount() {
@@ -79,6 +81,7 @@ class SearchContainer extends Component {
 	}
 
 	search() {
+		console.log('Searching tracks');
 		let { query } = this.state;
 		this.setState({ isLoading: true });
 		Api.search(query).then(response => {
@@ -137,13 +140,21 @@ class SearchContainer extends Component {
 		});
 	}
 
+	onChangeText(text) {
+		if (text === "") return;
+		const bounce = _.debounce(this.search, 1000);
+		let query = text.split(" ").join("+");
+		this.setState({ query });
+		bounce();
+	}
+
 	render() {
 		return (
 			<View style={[AppStyles.container, Styles.container]}>
 				<Modal setRef={ref => this.modal = ref} />
 				<SearchBar
 					setRef={ref => this.input = ref}
-					onChangeText={text => this.setState({ query: text.split(" ").join("+") })}
+					onChangeText={this.onChangeText}
 					onSubmitEditing={this.search}
 				/>
 				{this.state.query === "" &&
@@ -169,11 +180,11 @@ class SearchContainer extends Component {
 						keyExtractor={item => item.id}
 					/>
 				}
-				{this.state.isLoading === true &&
-					<View style={Styles.loadingScreen}>
-						<ActivityIndicator size={"large"} />
-					</View>
-				}
+				{/* {this.state.isLoading === true && */}
+				<View style={Styles.loadingScreen}>
+					<ActivityIndicator size={"large"} />
+				</View>
+				{/* } */}
 			</View>
 		);
 	}

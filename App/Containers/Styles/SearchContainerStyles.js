@@ -51,8 +51,9 @@ export default StyleSheet.create({
   loadingScreen: {
     ...StyleSheet.absoluteFill,
     zIndex: 100,
+    top: Metrics.headerHeight,
     width: Metrics.screenWidth,
-    height: Metrics.screenHeight,
+    height: Metrics.screenHeight - Metrics.headerHeight - Metrics.tabBarHeight,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
