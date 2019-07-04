@@ -180,11 +180,11 @@ class SearchContainer extends Component {
 						keyExtractor={item => item.id}
 					/>
 				}
-				{/* {this.state.isLoading === true && */}
-				<View style={Styles.loadingScreen}>
-					<ActivityIndicator size={"large"} />
-				</View>
-				{/* } */}
+				{this.state.isLoading === true &&
+					<View style={Styles.loadingScreen}>
+						<ActivityIndicator size={"large"} />
+					</View>
+				}
 			</View>
 		);
 	}
