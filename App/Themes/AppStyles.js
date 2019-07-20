@@ -6,7 +6,7 @@ export default StyleSheet.create({
     flex: 1,
     width: Metrics.screenWidth,
     height: Metrics.screenHeight,
-    paddingTop: Metrics.isIphoneX() === true ? Metrics.statusBarHeight : 0,
-    paddingHorizontal: Metrics.paddingHorizontal,
+    // paddingTop: Metrics.isIphoneX() === true ? Metrics.statusBarHeight : 0,
+    // paddingHorizontal: Metrics.paddingHorizontal,
   },
 });

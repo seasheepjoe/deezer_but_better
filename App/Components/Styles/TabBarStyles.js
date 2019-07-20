@@ -8,7 +8,7 @@ export default StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    paddingBottom: Metrics.isIphoneX() === true ? 15 : 0,
+    // paddingBottom: Metrics.isIphoneX() === true ? 15 : 0,
   },
 
   buttonContainer: {

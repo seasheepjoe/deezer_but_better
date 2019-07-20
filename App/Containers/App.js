@@ -7,12 +7,15 @@
  */
 
 import React, { Component } from "react";
+import { SafeAreaView } from "react-native";
 import RouteStack from "../Navigation";
 
 export default class App extends Component {
 	render() {
 		return (
-			<RouteStack screenProps={{}} />
+			<SafeAreaView style={{ flex: 1 }}>
+				<RouteStack screenProps={{}} />
+			</SafeAreaView>
 		);
 	}
 }

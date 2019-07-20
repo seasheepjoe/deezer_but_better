@@ -7,6 +7,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "@fortawesome/react-native-fontawesome": "^0.1.0",
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
     "lodash.debounce": "^4.0.8",
@@ -16,8 +19,9 @@
     "react-native-fontawesome": "^6.0.1",
     "react-native-gesture-handler": "^1.2.1",
     "react-native-linear-gradient": "^2.5.4",
-    "react-native-localize": "^1.1.2",
+    "react-native-localize": "^1.1.4",
     "react-native-modal": "^11.0.1",
+    "react-native-svg": "^9.5.3",
     "react-navigation": "^3.11.0",
     "rn-fetch-blob": "^0.10.15"
   },
