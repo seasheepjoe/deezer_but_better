@@ -12,6 +12,7 @@ export default StyleSheet.create({
     margin: 0,
     padding: 0,
     justifyContent: "flex-start",
+    top: Metrics.isIphoneX === true ? Metrics.statusBarHeight : 0,
   },
 
   tracksList: {
