@@ -65,6 +65,7 @@ export default StyleSheet.create({
     borderRadius: 3,
     marginVertical: 5,
     marginBottom: 25,
+    backgroundColor: "#fff",
   },
 
   openModalButton: {
