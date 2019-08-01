@@ -62,10 +62,8 @@ export default StyleSheet.create({
   openModalButtonContainer: {
     width: "100%",
     height: Metrics.screenHeight * 0.03,
-    borderRadius: 3,
     marginVertical: 5,
     marginBottom: 25,
-    backgroundColor: "#fff",
   },
 
   openModalButton: {
@@ -73,6 +71,8 @@ export default StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#fff",
+    borderRadius: 3,
   },
 
   openModalButtonText: {

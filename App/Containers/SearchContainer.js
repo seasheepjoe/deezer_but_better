@@ -111,11 +111,11 @@ class SearchContainer extends Component {
 	renderSectionFooter({ section }) {
 		if (section.data.length <= 0) return null;
 		return (
-			<ElevatedView elevation={4} style={Styles.openModalButtonContainer}>
-				<TouchableOpacity onPress={() => this.openModal(section)} style={Styles.openModalButton}>
+			<TouchableOpacity onPress={() => this.openModal(section)} style={Styles.openModalButtonContainer}>
+				<ElevatedView elevation={4} style={Styles.openModalButton}>
 					<Text style={Styles.openModalButtonText}>{I18n.t(`search_see_all_${section.type}`)}</Text>
-				</TouchableOpacity>
-			</ElevatedView>
+				</ElevatedView>
+			</TouchableOpacity>
 		);
 	}
 
