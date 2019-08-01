@@ -20,7 +20,7 @@ class TrackItem extends Component {
   getSubTitle(track) {
     let subTitle = "";
     if (track.type === "track") {
-      subTitle = `${I18n.t("track_item_by")} ${track.artist.name} - ${<Text>hey</Text>}`;
+      subTitle = `${I18n.t("track_item_by")} ${track.artist.name} - ${track.album.title}`;
     } else if (track.type === "artist") {
       subTitle = `${track.nb_fan} ${I18n.t("track_item_nb_fans")}`;
     } else if (track.type === "album") {
