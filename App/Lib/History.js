@@ -7,11 +7,11 @@ class History {
   /**
    * Gets user"s saved history
    */
-  static getHistory() {
+  static get() {
     return new Promise((resolve, reject) => {
       AsyncStorage.getItem(key, (error, value) => {
         if (error) reject(error);
-        resolve(value !== null ? value : []);
+        resolve(value !== null ? JSON.parse(value) : []);
       });
     });
   }
@@ -20,14 +20,15 @@ class History {
    * Save current searched track / album / artist in the history
    * @param {String} text
    */
-  static saveSearch(text) {
-    return new Promise((resolve, reject) => {
-      AsyncStorage.mergeItem(key, JSON.stringify(text), error => {
+  static put(text) {
+    this.get().then(items => {
+      if (items.length >= 5) {
+        items.pop();
+      }
+      items.unshift({ text });
+      AsyncStorage.setItem(key, JSON.stringify(items), error => {
         if (error) {
-          console.warn("Could not save item in history.");
-          reject(error);
-        } else {
-          resolve();
+          console.warn("Could not save item to AS. ", error);
         }
       });
     });

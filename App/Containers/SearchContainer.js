@@ -30,47 +30,58 @@ class SearchContainer extends Component {
 		this.searchDebounced = _.debounce(this.search, 900);
 	}
 
-	componentDidMount() {
-		this.setState({
-			searchHistoryList: [
+	componentWillMount() {
+		History.get().then(data => {
+			this.state.searchHistoryList = [
 				{
-					title: "Dernières recherches", data: [
-						{ text: "lloyd price" },
-						{ text: "pnb rock" },
-						{ text: "Masterpiece" },
-						{ text: "i'm gonna knock on your door" },
-						{ text: "i'm gonna knock" },
-					],
+					title: I18n.t("search_history_list_title"),
+					data,
 				},
-				{
-					title: "Les plus recherchés", data: [
-						{ text: "jonas brothers" },
-						{ text: "dj khaled" },
-						{ text: "angèle" },
-						{ text: "old town road" },
-						{ text: "tabata mixtape, vol1. 1" },
-					],
-				},
-				{
-					title: "Les plus recherchés", data: [
-						{ text: "jonas brothers" },
-						{ text: "dj khaled" },
-						{ text: "angèle" },
-						{ text: "old town road" },
-						{ text: "tabata mixtape, vol1. 1" },
-					],
-				},
-				{
-					title: "Les plus recherchés", data: [
-						{ text: "jonas brothers" },
-						{ text: "dj khaled" },
-						{ text: "angèle" },
-						{ text: "old town road" },
-						{ text: "tabata mixtape, vol1. 1" },
-					],
-				},
-			]
+			];
 		});
+	}
+
+	componentDidMount() {
+		// this.setState({
+		// 	searchHistoryList: [
+		// 		{
+		// 			title: "Dernières recherches", data: [
+		// 				{ text: "lloyd price" },
+		// 				{ text: "pnb rock" },
+		// 				{ text: "Masterpiece" },
+		// 				{ text: "i'm gonna knock on your door" },
+		// 				{ text: "i'm gonna knock" },
+		// 			],
+		// 		},
+		// 		{
+		// 			title: "Les plus recherchés", data: [
+		// 				{ text: "jonas brothers" },
+		// 				{ text: "dj khaled" },
+		// 				{ text: "angèle" },
+		// 				{ text: "old town road" },
+		// 				{ text: "tabata mixtape, vol1. 1" },
+		// 			],
+		// 		},
+		// 		{
+		// 			title: "Les plus recherchés", data: [
+		// 				{ text: "jonas brothers" },
+		// 				{ text: "dj khaled" },
+		// 				{ text: "angèle" },
+		// 				{ text: "old town road" },
+		// 				{ text: "tabata mixtape, vol1. 1" },
+		// 			],
+		// 		},
+		// 		{
+		// 			title: "Les plus recherchés", data: [
+		// 				{ text: "jonas brothers" },
+		// 				{ text: "dj khaled" },
+		// 				{ text: "angèle" },
+		// 				{ text: "old town road" },
+		// 				{ text: "tabata mixtape, vol1. 1" },
+		// 			],
+		// 		},
+		// 	]
+		// });
 		this.focusListener = this.props.navigation.addListener("didFocus", () => {
 			if (this.input !== null && this.input !== undefined) {
 				this.input.focus();
@@ -83,8 +94,8 @@ class SearchContainer extends Component {
 	}
 
 	search(text) {
+		History.put(text);
 		let query = text.split(" ").join("+");
-		this.setState({ isLoading: true });
 		Api.search(query).then(response => {
 			let results = [];
 			for (var i in response) {
@@ -142,7 +153,7 @@ class SearchContainer extends Component {
 	}
 
 	onChangeText(text) {
-		this.setState({ query: text });
+		this.setState({ query: text, isLoading: true });
 		if (text === "") return;
 		this.searchDebounced(text);
 	}
