@@ -11,28 +11,6 @@ export default StyleSheet.create({
     // paddingBottom: Metrics.isIphoneX() === true ? 15 : 0,
   },
 
-  buttonContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginVertical: 10,
-    minWidth: "25%",
-    width: "auto",
-  },
-
-  buttonIcon: {
-    fontSize: 16, // defines the size of the Font Awesome Icon
-    color: "#32323D",
-  },
-
-  buttonContainerActive: {
-    transform: [{ scale: 1.1 }],
-  },
-
-  buttonText: {
-    fontSize: 13,
-    color: "#32323D",
-  },
-
   gradientView: {
     width: Metrics.screenWidth,
     height: Metrics.tabBarHeight / 5,
