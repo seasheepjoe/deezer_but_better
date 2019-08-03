@@ -27,7 +27,7 @@ class SearchBar extends Component<Props> {
   }
 
   render() {
-    const { setRef, onChangeText, onSubmitEditing } = this.props;
+    const { setRef, onChangeText, onSubmitEditing, value } = this.props;
     return (
       <View style={Styles.container}>
         <TextInput
@@ -54,7 +54,7 @@ class SearchBar extends Component<Props> {
           multiline={false}
           numberOfLines={1}
         />
-        {this.state.text !== "" &&
+        {(this.state.text !== "" || (value !== undefined && value !== "")) &&
           <TouchableOpacity onPress={this.clearSearchBar} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
             <FontAwesome style={Styles.clearIcon}>{Icons.times}</FontAwesome>
           </TouchableOpacity>

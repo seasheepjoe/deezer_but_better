@@ -141,9 +141,9 @@ class SearchContainer extends Component {
 	}
 
 	onChangeText(text) {
+		this.setState({ query: text });
 		if (text === "") return;
 		const bounce = _.debounce(() => this.search(text), 1000);
-		this.setState({ query: text });
 		bounce();
 	}
 
@@ -161,7 +161,8 @@ class SearchContainer extends Component {
 				<SearchBar
 					setRef={ref => this.input = ref}
 					onChangeText={this.onChangeText}
-					onSubmitEditing={this.search}
+					value={this.state.query}
+					// onSubmitEditing={this.search}
 				/>
 				{this.state.query === "" &&
 					<SectionList
