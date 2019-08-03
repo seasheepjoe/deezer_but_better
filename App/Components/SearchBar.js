@@ -36,7 +36,6 @@ class SearchBar extends Component<Props> {
             this.input = ref;
             if (setRef) setRef(ref);
           }}
-          style={Styles.textInput}
           onChangeText={text => {
             this.setState({ text });
             if (onChangeText) onChangeText(text);
