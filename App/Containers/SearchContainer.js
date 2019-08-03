@@ -28,17 +28,11 @@ class SearchContainer extends Component {
 		this.onChangeText = this.onChangeText.bind(this);
 		this.searchItem = this.searchItem.bind(this);
 		this.searchDebounced = _.debounce(this.search, 900);
+		this.fetchHistory = this.fetchHistory.bind(this);
 	}
 
 	componentWillMount() {
-		History.get().then(data => {
-			this.state.searchHistoryList = [
-				{
-					title: I18n.t("search_history_list_title"),
-					data,
-				},
-			];
-		});
+		this.fetchHistory();
 	}
 
 	componentDidMount() {
@@ -86,11 +80,23 @@ class SearchContainer extends Component {
 			if (this.input !== null && this.input !== undefined) {
 				this.input.focus();
 			}
+			this.fetchHistory();
 		});
 	}
 
 	componentWillUnmount() {
 		this.focusListener.remove();
+	}
+
+	fetchHistory() {
+		History.get().then(data => {
+			this.state.searchHistoryList = [
+				{
+					title: I18n.t("search_history_list_title"),
+					data,
+				},
+			];
+		});
 	}
 
 	search(text) {
@@ -154,7 +160,10 @@ class SearchContainer extends Component {
 
 	onChangeText(text) {
 		this.setState({ query: text, isLoading: true });
-		if (text === "") return;
+		if (text === "") {
+			this.fetchHistory(); // means that history list will be shown
+			return;
+		}
 		this.searchDebounced(text);
 	}
 
