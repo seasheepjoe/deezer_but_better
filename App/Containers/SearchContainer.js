@@ -27,6 +27,7 @@ class SearchContainer extends Component {
 		this.openModal = this.openModal.bind(this);
 		this.onChangeText = this.onChangeText.bind(this);
 		this.searchItem = this.searchItem.bind(this);
+		this.searchDebounced = _.debounce(this.search, 900);
 	}
 
 	componentDidMount() {
@@ -143,8 +144,7 @@ class SearchContainer extends Component {
 	onChangeText(text) {
 		this.setState({ query: text });
 		if (text === "") return;
-		const bounce = _.debounce(() => this.search(text), 1000);
-		bounce();
+		this.searchDebounced(text);
 	}
 
 	searchItem(text) {
