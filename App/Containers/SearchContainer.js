@@ -26,6 +26,7 @@ class SearchContainer extends Component {
 		this.renderSectionFooter = this.renderSectionFooter.bind(this);
 		this.openModal = this.openModal.bind(this);
 		this.onChangeText = this.onChangeText.bind(this);
+		this.searchItem = this.searchItem.bind(this);
 	}
 
 	componentDidMount() {
@@ -80,9 +81,8 @@ class SearchContainer extends Component {
 		this.focusListener.remove();
 	}
 
-	search() {
-		console.log('Searching tracks');
-		let { query } = this.state;
+	search(text) {
+		let query = text.split(" ").join("+");
 		this.setState({ isLoading: true });
 		Api.search(query).then(response => {
 			let results = [];
@@ -121,7 +121,7 @@ class SearchContainer extends Component {
 
 	renderItem({ item, index }) {
 		return (
-			<TouchableOpacity onPress={() => this.search(item.text)} style={Styles.itemContainer} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+			<TouchableOpacity onPress={() => this.searchItem(item.text)} style={Styles.itemContainer} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
 				<FontAwesome>{Icons.clock}</FontAwesome>
 				<Text style={Styles.itemText}>{item.text}</Text>
 			</TouchableOpacity>
@@ -142,10 +142,16 @@ class SearchContainer extends Component {
 
 	onChangeText(text) {
 		if (text === "") return;
-		const bounce = _.debounce(this.search, 1000);
-		let query = text.split(" ").join("+");
-		this.setState({ query });
+		const bounce = _.debounce(() => this.search(text), 1000);
+		this.setState({ query: text });
 		bounce();
+	}
+
+	searchItem(text) {
+		this.input.setNativeProps({ text });
+		this.setState({ query: text }, () => {
+			this.search(text);
+		});
 	}
 
 	render() {
