@@ -23,7 +23,7 @@ export default StyleSheet.create({
   },
 
   textInput: {
-    width: "100%",
+    width: "95%",
     height: "100%",
     fontSize: 18,
   },
