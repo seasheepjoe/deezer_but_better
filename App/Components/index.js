@@ -4,6 +4,8 @@ import TrackItem from "./TrackItem";
 import Modal from "./Modal";
 import Header from "./Header";
 import TabBarIcon from "./TabBarIcon";
+import BackgroundPlayer from "./BackgroundPlayer";
+import BackgroundPlayerIcon from "./BackgroundPlayerIcon";
 
 export {
   TabBar,
@@ -12,4 +14,6 @@ export {
   Modal,
   Header,
   TabBarIcon,
+  BackgroundPlayer,
+  BackgroundPlayerIcon,
 }

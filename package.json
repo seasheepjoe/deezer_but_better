@@ -22,6 +22,7 @@
     "react-native-localize": "^1.1.4",
     "react-native-modal": "^11.0.1",
     "react-native-svg": "^9.5.3",
+    "react-native-video": "^5.0.0",
     "react-navigation": "^3.11.0",
     "rn-fetch-blob": "^0.10.15"
   },

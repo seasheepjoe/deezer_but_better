@@ -9,6 +9,7 @@
 import React, { Component } from "react";
 import { SafeAreaView } from "react-native";
 import RouteStack from "../Navigation";
+import { BackgroundPlayer } from "../Components";
 
 export default class App extends Component {
 	render() {

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import Styles from "./Styles/TabBarStyles";
 import { TabBarIcon } from ".";
+import BackgroundPlayer from "./BackgroundPlayer";
 
 class TabBar extends Component {
 	constructor(props) {
@@ -11,7 +12,8 @@ class TabBar extends Component {
 	}
 
 	render() {
-		return (
+		return ([
+			<BackgroundPlayer />,
 			<View style={Styles.container}>
 				{this.props.navigation.state.routes.map(item => (
 					<TabBarIcon
@@ -22,7 +24,7 @@ class TabBar extends Component {
 						onPress={() => this.props.navigation.navigate(item.key)} />
 				))}
 			</View>
-		);
+		]);
 	}
 }
 

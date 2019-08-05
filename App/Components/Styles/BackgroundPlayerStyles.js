@@ -5,15 +5,9 @@ export default StyleSheet.create({
   container: {
     width: Metrics.screenWidth,
     height: Metrics.headerHeight,
-    backgroundColor: "red",
-    zIndex: 10000,
-    position: "absolute",
-    bottom: Metrics.tabBarHeight,
-  },
-
-  playerModal: {
-    width: Metrics.screenWidth,
-    position: "absolute",
-    zIndex: 100000,
+    backgroundColor: "#F08080",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
