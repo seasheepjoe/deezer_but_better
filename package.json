@@ -10,7 +10,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-native-fontawesome": "^0.1.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "lodash": "^4.17.11",
     "lodash.debounce": "^4.0.8",
     "react": "16.8.3",
